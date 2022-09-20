@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Project-with-angular.iml" filepath="$PROJECT_DIR$/.idea/Project-with-angular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/first_angular_project/first_angular_project.iml" filepath="$PROJECT_DIR$/first_angular_project/first_angular_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/first_project.iml" filepath="$PROJECT_DIR$/first_project.iml" />
+    </modules>
+  </component>
+</project>
