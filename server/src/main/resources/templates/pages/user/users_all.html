@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{fragments/data_table}">
+      layout:decorate="~{layout}">
 <head>
     <meta charset="utf-8">
     <title>Users</title>
@@ -10,7 +10,12 @@
 </head>
 <body>
 
-<div layout:fragment="data_table_content">
+<div layout:fragment="content">
+    <form>
+        <a th:href="@{/users/new/}" type="button" class="btn btn-info">Add new User</a>
+        <p></p>
+        <p></p>
+    </form>
 
     <tr th:each="user,iter : ${list}">
         <td th:text="${iter.count}"></td>
@@ -27,13 +32,6 @@
             <a th:href="@{'/users/delete/' + ${user.getId()}}" type="button" class="btn btn-danger">delete</a>
         </td>
     </tr>
-
-    <form>
-        <a th:href="@{/users/new/}" type="button" class="btn btn-info">Add new User</a>
-        <p></p>
-        <p></p>
-    </form>
 </div>
-
 </body>
 </html>
