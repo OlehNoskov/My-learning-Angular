@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Project-with-angular.iml" filepath="$PROJECT_DIR$/.idea/Project-with-angular.iml" />
       <module fileurl="file://$PROJECT_DIR$/client.iml" filepath="$PROJECT_DIR$/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/first_angular_project.iml" filepath="$PROJECT_DIR$/server/first_angular_project.iml" />
       <module fileurl="file://$PROJECT_DIR$/first_angular_project/server.iml" filepath="$PROJECT_DIR$/first_angular_project/server.iml" />
     </modules>
   </component>
