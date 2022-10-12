@@ -1,33 +1,44 @@
 package first_angular_project.persistence.entity;
 
+import groovy.transform.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
-import java.util.Objects;
 
-@Entity
 @Data
-public class User {
-    @Id
-    private long id;
+@Builder
+@AllArgsConstructor
+@Entity
+@EqualsAndHashCode(callSuper = true)
+public class User extends BaseEntity {
+    public User() {
+        super();
+    }
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(name = "first_name")
     private String firstname;
+
+    @Column(name = "last_name")
     private String lastname;
-    private Date birthday;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @Column(name = "birth_day")
+    private Date birthDay;
+
+    @Column(name = "address")
     private String city;
+
+    @Column(name = "phone")
     private String phone;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(birthday, user.birthday) && Objects.equals(city, user.city) && Objects.equals(phone, user.phone);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname, lastname, birthday, city, phone);
-    }
 }
