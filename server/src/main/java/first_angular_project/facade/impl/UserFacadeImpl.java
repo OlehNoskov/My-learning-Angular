@@ -26,8 +26,8 @@ import java.util.stream.Collectors;
 public class UserFacadeImpl implements UserFacade {
     private final UserService userService;
 
-    public UserFacadeImpl(UserService studentService) {
-        this.userService = studentService;
+    public UserFacadeImpl(UserService userService) {
+        this.userService = userService;
     }
 
     @Override

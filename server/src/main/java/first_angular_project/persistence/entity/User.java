@@ -1,28 +1,24 @@
 package first_angular_project.persistence.entity;
 
-import groovy.transform.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
-@Data
-@Builder
-@AllArgsConstructor
 @Entity
+@Data
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Table(name = "users")
 public class User extends BaseEntity {
     public User() {
         super();
     }
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "email")
     private String email;
 
     @Column(name = "first_name")
@@ -41,4 +37,17 @@ public class User extends BaseEntity {
 
     @Column(name = "phone")
     private String phone;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return getId() != null && Objects.equals(getId(), user.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
